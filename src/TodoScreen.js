@@ -1,15 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Header } from 'react-native-elements';
+import { connect } from 'react-redux';
 import TodoList from './components/TodoList';
 
-export default class TodoScreen extends React.Component {
+class TodoScreen extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            items: [{'key':'sleep'}]
-        }
     }
 
     render() {
@@ -20,7 +17,7 @@ export default class TodoScreen extends React.Component {
                     containerStyle={styles.header}
                 />
                 <TodoList
-                    items={this.state.items}
+                    items={this.props.todo.items}
                 />
             </View>
         )
@@ -36,3 +33,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#303'
     }
 });
+
+const mapStateToProps = (state) => {
+    const { todo } = state;
+    return { todo };
+};
+
+export default connect(mapStateToProps)(TodoScreen);
