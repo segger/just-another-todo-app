@@ -5,10 +5,6 @@ import { FlatList } from 'react-native-gesture-handler';
 export default class TodoList extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            items: [{'key':'sleep'}]
-        }
     }
 
     renderItem = ({item}) => {
@@ -21,7 +17,7 @@ export default class TodoList extends React.Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.items}
+                    data={this.props.items}
                     renderItem={this.renderItem}
                 />
             </View>

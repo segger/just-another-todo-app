@@ -1,2 +1,2 @@
-import TodoList from './src/TodoList';
-export default TodoList;
+import TodoScreen from './src/TodoScreen';
+export default TodoScreen;
